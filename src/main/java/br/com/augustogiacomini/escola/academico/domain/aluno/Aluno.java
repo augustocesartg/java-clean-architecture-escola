@@ -22,11 +22,15 @@ public class Aluno {
     }
 
     public void adicionarTelefone(String ddd, String numero) {
+        if (this.telefones.size() == 2) {
+            throw new AlunoMaxPhonesException(2);
+        }
+
         this.telefones.add(new Telefone(ddd, numero));
     }
 
-    public String getCpf() {
-        return cpf.getNumero();
+    public Cpf getCpf() {
+        return cpf;
     }
 
     public String getNome() {

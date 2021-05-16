@@ -20,7 +20,7 @@ public class AlunoRepositoryMemory implements AlunoRepository {
     @Override
     public Aluno buscarPorCpf(Cpf cpf) {
         return matriculados.stream()
-                .filter(alunoMatriculado -> alunoMatriculado.getCpf().equals(cpf.getNumero()))
+                .filter(alunoMatriculado -> alunoMatriculado.getCpf().toString().equals(cpf.getNumero()))
                 .findFirst()
                 .orElseThrow(() -> new AlunoNotFoundException(cpf));
     }

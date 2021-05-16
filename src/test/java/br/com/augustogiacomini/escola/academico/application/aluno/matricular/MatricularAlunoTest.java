@@ -1,5 +1,6 @@
 package br.com.augustogiacomini.escola.application.aluno.matricular;
 
+import br.com.augustogiacomini.escola.domain.PublicadorDeEventos;
 import br.com.augustogiacomini.escola.domain.aluno.Aluno;
 import br.com.augustogiacomini.escola.domain.aluno.Cpf;
 import br.com.augustogiacomini.escola.infra.aluno.AlunoRepositoryMemory;
@@ -12,7 +13,9 @@ class MatricularAlunoTest {
     @Test
     void devePersistirAluno() {
         AlunoRepositoryMemory repository = new AlunoRepositoryMemory();
-        MatricularAluno useCase = new MatricularAluno(repository);
+        PublicadorDeEventos publicador = new PublicadorDeEventos();
+
+        MatricularAluno useCase = new MatricularAluno(repository, publicador);
 
         MatricularAlunoDTO dto =
                 new MatricularAlunoDTO("Fulano", "123.456.789-10", "fulano@email.com");
@@ -21,7 +24,7 @@ class MatricularAlunoTest {
         Aluno aluno = repository.buscarPorCpf(new Cpf("123.456.789-10"));
 
         assertEquals("Fulano", aluno.getNome());
-        assertEquals("123.456.789-10", aluno.getCpf());
+        assertEquals("123.456.789-10", aluno.getCpf().toString());
         assertEquals("fulano@email.com", aluno.getEmail());
     }
 }

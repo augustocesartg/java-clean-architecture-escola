@@ -1,6 +1,5 @@
 package br.com.augustogiacomini.escola.domain.aluno;
 
-import br.com.augustogiacomini.escola.domain.aluno.Telefone;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

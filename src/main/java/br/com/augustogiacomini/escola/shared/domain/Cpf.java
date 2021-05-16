@@ -1,4 +1,4 @@
-package br.com.augustogiacomini.escola.domain.aluno;
+package br.com.augustogiacomini.escola.academico.domain.aluno;
 
 public class Cpf {
 
@@ -13,6 +13,11 @@ public class Cpf {
     }
 
     public String getNumero() {
+        return numero;
+    }
+
+    @Override
+    public String toString() {
         return numero;
     }
 }

@@ -27,7 +27,7 @@ public class AlunoRepositoryJDBC implements AlunoRepository {
         try {
             String sql = "INSERT INTO ALUNO VALUES(?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, aluno.getCpf());
+            preparedStatement.setString(1, aluno.getCpf().getNumero());
             preparedStatement.setString(2, aluno.getNome());
             preparedStatement.setString(1, aluno.getEmail());
             preparedStatement.execute();
